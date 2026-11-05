@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khwezi Bakes | Artisanal Bakery & Custom Cakes</title>
+    <meta name="description"
+        content="Khwezi Bakes offers fresh artisanal breads, flaky pastries, and custom celebration cakes in Durban North. Visit our daily menu and order today!">
+
+
+    <!-- Open Graph Tags for Social Media Sharing -->
+    <meta property="og:title" content="Khwezi Bakes | Artisanal Bakery">
+    <meta property="og:description" content="Bringing warmth, light, and fresh baking to your family table.">
+    <meta property="og:image" content="_images/logo.svg">
+    <link rel="stylesheet" href="css_assets/styles.css">
+</head>
+
+<body>
+
+
+    <!--The below block of code was adapted from Gemini AI (2026)-->
+    <!-- HEADER & NAVIGATION-->
+    <header>
+        <div id="navigation">
+            <div class="nav-container">
+                <!-- Logo + Title -->
+                <a href="index.html" class="brand-link">
+                    <img src="_images/logo.svg" alt="Khwezi Bakes Logo" class="nav-logo">
+                    <h1>Khwezi Bakes</h1>
+                </a>
+
+                <!-- Mobile Hamburger Toggle Button -->
+                <button class="hamburger-toggle" id="hamburgerToggle" aria-label="Toggle Navigation Menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+
+                <!-- Navigation Links -->
+                <nav class="nav-links" id="navLinks">
+                    <a href="index.html">Home</a>
+                    <a href="menu.html">Daily Menu</a>
+                    <a href="gallery.html">Gallery</a>
+                    <a href="story.html">Our Story</a>
+                    <a href="contact.html" class="active">Contact us</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- PAGE HERO / HEADER -->
+        <section class="page-title-section">
+            <h2>Visit Us or Send an Order Inquiry</h2>
+            <p>We'd love to welcome you to our storefront or assist with your custom celebration bakes.</p>
+        </section>
+
+        <!-- STORE INFO & MAP GRID -->
+        <section class="section-container contact-info-section">
+            <h2 class="section-title">STORE LOCATION & HOURS</h2>
+            <div class="contact-grid">
+                <div class="info-card">
+                    <div class="info-block">
+                        <h3>Store Information</h3>
+                        <p><strong>Physical Address:</strong> 12 Radar Drive, Durban North, Durban, 4051</p>
+                        <p><strong>Direct Telephone:</strong> +27 (0)31 555 2424</p>
+                        <p><strong>Email Enquiries:</strong> <a
+                                href="mailto:hello@khwezibakes.co.za">hello@khwezibakes.co.za</a></p>
+                    </div>
+
+                    <div class="info-block">
+                        <h3>Operating Hours</h3>
+                        <p><strong>Monday to Friday:</strong> 06:30 – 18:00</p>
+                        <p><strong>Saturday & Sunday:</strong> 07:00 – 15:00</p>
+                    </div>
+                </div>
+
+                <div class="map-card">
+                    <h3>Storefront Map Location</h3>
+                    <div class="map-wrapper">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3462.3386732452354!2d31.035617799999997!3d-29.796758600000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ef707aa871594bd%3A0x8f02f03f86d820cd!2sEmeris%20-%20Durban%20North%20Campus!5e0!3m2!1sen!2sza!4v1791199201729!5m2!1sen!2sza"
+                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="strict-origin-when-cross-origin">
+                        </iframe>
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CUSTOM CAKE & PRE-ORDER INQUIRY FORM -->
+        <section class="section-container form-section">
+            <h2 class="section-title">CUSTOM CAKE & PRE-ORDER INQUIRY</h2>
+            <div class="estimator-card form-card">
+                <form action="#" method="post" class="inquiry-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="customer-name">Full Name:</label>
+                            <input type="text" id="customer-name" name="customer-name" class="form-control"
+                                placeholder="e.g. Thabo Mthembu" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="customer-email">Email Address:</label>
+                            <input type="email" id="customer-email" name="customer-email" class="form-control"
+                                placeholder="name@example.com" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="customer-phone">Contact Telephone:</label>
+                            <input type="tel" id="customer-phone" name="customer-phone" class="form-control"
+                                placeholder="+27 82 123 4567" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="event-date">Required Event/Pick-up Date:</label>
+                            <input type="date" id="event-date" name="event-date" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="cake-flavour">Preferred Cake Flavour:</label>
+                            <select id="cake-flavour" name="cake-flavour" class="form-control">
+                                <option value="vanilla">Madagascar Vanilla Bean</option>
+                                <option value="chocolate">Belgian Cocoa Fudge</option>
+                                <option value="red-velvet">Traditional Red Velvet</option>
+                                <option value="carrot">Spiced Carrot & Pecan</option>
+                                <option value="other">Other / Custom Request</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="guest-count">Estimated Number of Guests:</label>
+                            <input type="number" id="guest-count" name="guest-count" min="1" class="form-control"
+                                placeholder="e.g. 25" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="order-notes">Custom Design Notes / Special Requirements:</label>
+                        <textarea id="order-notes" name="order-notes" rows="5" class="form-control"
+                            placeholder="Please specify design preferences, color themes, or dietary requirements..."></textarea>
+                    </div>
+
+                    <div class="cta-wrap">
+                        <button type="submit" class="btn btn-primary">Submit Order Inquiry</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-col footer-left">
+                <img src="_images/logo.svg" alt="Khwezi Bakes Logo" class="footer-logo">
+                <div class="social-links">
+                    <a href="https://www.instagram.com/khwezibakes_sa/" target="_blank"
+                        rel="noopener noreferrer">Instagram</a> |
+                    <a href="https://www.facebook.com/share/19zCnnTtfj/" target="_blank"
+                        rel="noopener noreferrer">Facebook</a> |
+                    <a href="https://www.tiktok.com/@khwezi.bakes.pati" target="_blank"
+                        rel="noopener noreferrer">TikTok</a>
+                </div>
+            </div>
+
+            <div class="footer-col footer-center">
+                <p class="footer-address">12 Radar Drive , Durban North, Durban</p>
+                <p class="footer-contact">Ph: +27 (0) 31 098 7654 | <a
+                        href="mailto:hello@khwezibakes.co.za">hello@khwezibakes.co.za</a></p>
+                <p class="copyright">&copy; 2026 Khwezi Bakes Patisserie. All Rights Reserved.</p>
+            </div>
+
+            <div class="footer-col footer-right">
+                <h4>QUICK LINKS</h4>
+                <div class="footer-nav">
+                    <a href="index.html">Home</a>
+                    <a href="menu.html">Daily Menu</a>
+                    <a href="gallery.html">Gallery</a>
+                    <a href="story.html">Our Story</a>
+                    <a href="contact.html">Contact us</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>

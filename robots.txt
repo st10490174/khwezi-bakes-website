@@ -1,0 +1,6 @@
+# Allow search engine crawlers to index all public pages
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://khwezibakes.netlify.app/sitemap.xml

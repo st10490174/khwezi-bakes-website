@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khwezi Bakes | Artisanal Bakery & Custom Cakes</title>
+    <meta name="description"
+        content="Khwezi Bakes offers fresh artisanal breads, flaky pastries, and custom celebration cakes in Durban North. Visit our daily menu and order today!">
+
+
+   
+
+
+    <!-- Open Graph Tags for Social Media Sharing -->
+    <meta property="og:title" content="Khwezi Bakes | Artisanal Bakery">
+    <meta property="og:description" content="Bringing warmth, light, and fresh baking to your family table.">
+    <meta property="og:image" content="_images/logo.svg">
+    <link rel="stylesheet" href="css_assets/styles.css">
+</head>
+
+<body>
+
+    <!-- 
+  Source Attribution:
+  Code adapted from AI Collaborator (Gemini) assistance.
+  Reason: Implemented for structuring the hero slideshow carousel and category filter buttons.
+  Date Accessed: October 2026.
+-->
+    <!--Header and navigation tabs for different pages-->
+    <header>
+    <div id="navigation">
+        <div class="nav-container">
+            <!-- Logo + Title -->
+            <a href="index.html" class="brand-link">
+                <img src="_images/logo.svg" alt="Khwezi Bakes Logo" class="nav-logo">
+                <h1>Khwezi Bakes</h1>
+            </a>
+            
+            <!-- Mobile Hamburger Toggle Button -->
+            <button class="hamburger-toggle" id="hamburgerToggle" aria-label="Toggle Navigation Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <!-- Navigation Links -->
+            <nav class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="menu.html">Daily Menu</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="story.html">Our Story</a>
+                <a href="contact.html" class="active">Contact us</a>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <main>
+
+        <!-- HERO BANNER WITH SLIDESHOW -->
+        <section class="hero-slideshow-container">
+            <!-- Background Carousel Images -->
+            <div class="hero-slide active" style="background-image: url('_images/hero-menu-slide.jpg');"></div>
+            <div class="hero-slide" style="background-image: url('_images/hero-order-slide.jpg');"></div>
+            <div class="hero-slide" style="background-image: url('_images/hero-gallery-slide.jpg');"></div>
+
+            <!-- Dark overlay to keep text readable -->
+            <div class="hero-overlay"></div>
+
+            <!-- Hero Content (Text & Buttons) -->
+            <div class="hero-content">
+                <h1>Freshly Baked Daily with Passion & Local Ingredients</h1>
+                <p>Bringing warmth, light, and delicious moments to our neighbourhood with traditional artisanal
+                    recipes.</p>
+                <div class="hero-buttons">
+                    <a href="menu.html" class="btn btn-primary">EXPLORE DAILY MENU</a>
+                    <a href="contact.html" class="btn btn-secondary">PRE-ORDER CUSTOM CAKE</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-container highlights-section">
+            <h2 class="section-title">TODAY'S FRESH HIGHLIGHTS</h2>
+            <div class="card-grid-3">
+                <div class="item-card">
+                    <img src="_images/highlight-1.jpg" alt="Traditional Sourdough Bread" class="responsive-img">
+                    <div class="card-body">
+                        <h3>Traditional Sourdough Bread</h3>
+                        <p>Artisanal slow-fermented crusty sourdough loaf made with South African organic wheat flour.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="item-card">
+                    <img src="_images/highlight-2.jpg" alt="Warm Honey & Cinnamon Pastries" class="responsive-img">
+                    <div class="card-body">
+                        <h3>Warm Honey & Cinnamon Pastries</h3>
+                        <p>Flaky layered pastries baked fresh every morning and glazed with regional honey.</p>
+                    </div>
+                </div>
+
+                <div class="item-card">
+                    <img src="_images/highlight-3.jpg" alt="Custom Celebration Cakes" class="responsive-img">
+                    <div class="card-body">
+                        <h3>Custom Celebration Cakes</h3>
+                        <p>Handcrafted cakes designed tailored to your special occasions and family milestones.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--Quick story of khwezi bakes and a cta button-->
+        <section class="section-container story-teaser-section">
+            <h2 class="section-title">THE STAR OF OUR NEIGHBOURHOOD</h2>
+            <div class="narrative-content" style="text-align: center; max-width: 800px; margin: 0 auto;">
+                <p>Named after 'Khwezi'—the morning star—our bakery was founded on the belief that even the smallest
+                    sweet creation can bring light and happiness into your day.</p>
+                <div class="cta-wrap">
+                    <a href="story.html" class="btn btn-primary">Read Our Full Story</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- IMAGE LIGHTBOX MODAL -->
+    <div id="imageModal" class="image-modal">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="modalImg" alt="Enlarged Cake Preview">
+    </div>
+
+    <!--website footer containing social media links (fictional), 
+contact info, quick links to website pages and branded copyright khwezi bakes text-->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-col footer-left">
+                <img src="_images/logo.svg" alt="Khwezi Bakes Logo" class="footer-logo">
+                <div class="social-links">
+                    <a href="https://www.instagram.com/khwezibakes_sa/" target="_blank"
+                        rel="noopener noreferrer">Instagram</a> |
+                    <a href="https://www.facebook.com/share/19zCnnTtfj/" target="_blank"
+                        rel="noopener noreferrer">Facebook</a> |
+                    <a href="https://www.tiktok.com/@khwezi.bakes.pati" target="_blank"
+                        rel="noopener noreferrer">TikTok</a>
+                </div>
+            </div>
+
+            <div class="footer-col footer-center">
+                <p class="footer-address">12 Radar Drive, Durban North, Durban</p>
+                <p class="footer-contact">Ph: +27 (0) 31 098 7654 | <a
+                        href="mailto:hello@khwezibakes.co.za">hello@khwezibakes.co.za</a></p>
+                <p class="copyright">&copy; 2026 Khwezi Bakes Patisserie. All Rights Reserved.</p>
+            </div>
+
+            <div class="footer-col footer-right">
+                <h4>QUICK LINKS</h4>
+                <div class="footer-nav">
+                    <a href="index.html">Home</a>
+                    <a href="menu.html">Daily Menu</a>
+                    <a href="gallery.html">Gallery</a>
+                    <a href="story.html">Our Story</a>
+                    <a href="contact.html">Contact us</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>

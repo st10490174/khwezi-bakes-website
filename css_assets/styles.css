@@ -1,0 +1,1430 @@
+/* 
+  Source Attribution:
+  Code adapted from AI Collaborator (Gemini) assistance.
+  Reason: Implemented to style active filter buttons and handle smooth fade-and-scale transition animations for menu item filtering.
+  Date Accessed: October 2026.
+*/
+
+/* Fonts  */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap');
+
+/* 1.CSS Variables */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-cream: #FAF0E6;
+    --text-chocolate: #3E2723;
+    --accent-terracotta: #D87093;
+    --accent-wheat: #DAA520;
+    --border-gray: #E0E0E0;
+    --white: #FFFFFF;
+    
+    --font-heading: 'Cormorant Garamond', serif;
+    --font-body: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-cream);
+    color: var(--text-chocolate);
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+/* 2. Typography */
+h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    color: var(--text-chocolate);
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+h1 {
+    font-size: 2.2rem;
+}
+
+h2.section-title {
+    font-size: 2rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+h2.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: var(--accent-terracotta);
+    margin: 0.5rem auto 0 auto;
+}
+
+h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+/* 3. Responsive images & media */
+.responsive-img, img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* 4. Buttons and interactive elements */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.75rem;
+    font-family: var(--font-body);
+    font-weight: 600;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    letter-spacing: 0.05em;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.btn-primary {
+    background-color: var(--accent-terracotta);
+    color: var(--white);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: var(--text-chocolate);
+    color: var(--bg-cream);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border-color: var(--text-chocolate);
+    color: var(--text-chocolate);
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+    background-color: var(--text-chocolate);
+    color: var(--bg-cream);
+}
+
+/* 5. Header and navigation table structure */
+header {
+    background-color: var(--white);
+    border-bottom: 2px solid var(--border-gray);
+    padding: 1rem 5%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+#navigation table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#navigation td {
+    vertical-align: middle;
+}
+
+td.logo-cell {
+    width: 100px;
+}
+
+#navigation img {
+    max-width: 80px;
+    height: auto;
+    display: block;
+}
+
+nav {
+    text-align: right;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-chocolate);
+    font-weight: 600;
+    margin-left: 1.25rem;
+    padding: 0.25rem 0;
+    transition: color 0.3s ease;
+}
+
+nav a:hover,
+nav a:focus {
+    color: var(--accent-terracotta);
+}
+
+nav a.active {
+    color: var(--accent-terracotta);
+    border-bottom: 2px solid var(--accent-terracotta);
+}
+
+/*6. Layout and containers */
+.section-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 3.5rem 1.5rem;
+    border-bottom: 1px solid var(--border-gray);
+}
+
+.cta-wrap {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+/*  7. Page title and hero sections*/
+.page-title-section {
+    background-color: var(--text-chocolate);
+    color: var(--white);
+    text-align: center;
+    padding: 3rem 1.5rem;
+}
+
+.page-title-section h2 {
+    font-size: 2.5rem;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+}
+
+.page-title-section p {
+    font-size: 1.1rem;
+    color: var(--bg-cream);
+    margin-bottom: 0;
+}
+
+.hero-section {
+    background: linear-gradient(rgba(62, 39, 35, 0.65), rgba(62, 39, 35, 0.65)), url('../_images/hero-bg.jpg') center/cover no-repeat;
+    color: var(--white);
+    text-align: center;
+    padding: 5rem 1.5rem;
+}
+
+.hero-section h2 {
+    font-size: 3rem;
+    color: var(--white);
+    margin-bottom: 1rem;
+}
+
+.hero-section p {
+    font-size: 1.25rem;
+    max-width: 700px;
+    margin: 0 auto 2rem auto;
+    color: var(--bg-cream);
+}
+
+/* 8. Menu / category filters */
+.filter-section {
+    padding: 2rem 1.5rem;
+}
+
+.filter-group {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.filter-btn {
+    background-color: var(--white);
+    border: 1px solid var(--text-chocolate);
+    color: var(--text-chocolate);
+    padding: 0.6rem 1.25rem;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background-color: var(--text-chocolate);
+    color: var(--white);
+}
+
+/* 9. SPECIAL OF THE DAY / FEATURED BANNERS */
+.special-card {
+    background-color: var(--white);
+    border: 1px solid var(--border-gray);
+    border-radius: 6px;
+    display: flex;
+    gap: 2rem;
+    padding: 2rem;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(62, 39, 35, 0.05);
+}
+
+.special-image-wrap {
+    flex: 1;
+    max-width: 400px;
+}
+
+.special-image-wrap img {
+    border-radius: 4px;
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+}
+
+.special-details {
+    flex: 1.2;
+}
+
+.price-tag {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--accent-terracotta);
+    margin: 0.75rem 0 1.25rem 0;
+}
+
+/* 10. CARDS & GRID LAYOUTS (Products, Gallery, Team, Principles) */
+.card-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.item-card {
+    background-color: var(--white);
+    border: 1px solid var(--border-gray);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(62, 39, 35, 0.05);
+    display: flex;
+    flex-direction: column;
+}
+
+.item-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
+}
+
+.narrative-content p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+.value-card {
+    background-color: var(--white);
+    border: 1px solid var(--border-gray);
+    border-radius: 6px;
+    padding: 1.75rem;
+    box-shadow: 0 4px 12px rgba(62, 39, 35, 0.05);
+    text-align: center;
+}
+
+.value-card h3 {
+    color: var(--accent-terracotta);
+    margin-bottom: 0.75rem;
+}
+
+.role-title {
+    font-weight: 700;
+    color: var(--accent-terracotta);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.75rem;
+}
+
+/* 11. FORMS & ESTIMATOR STYLES */
+.estimator-card {
+    background-color: var(--white);
+    border: 1px solid var(--border-gray);
+    border-radius: 6px;
+    padding: 2.5rem;
+    max-width: 750px;
+    margin: 0 auto;
+    box-shadow: 0 4px 12px rgba(62, 39, 35, 0.05);
+}
+
+.form-row {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-chocolate);
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--text-chocolate);
+    background-color: var(--bg-cream);
+    border: 1px solid var(--border-gray);
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: var(--accent-terracotta);
+}
+
+textarea.form-control {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.estimate-result {
+    text-align: center;
+    background-color: var(--bg-cream);
+    padding: 1.25rem;
+    border-radius: 4px;
+    margin-top: 2rem;
+    border: 1px dashed var(--accent-terracotta);
+}
+
+.estimate-result p {
+    margin-bottom: 0;
+    font-size: 1.1rem;
+}
+
+.estimate-price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent-terracotta);
+}
+
+/*12. CONTACT INFO & MAP SECTION */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.info-card, .map-card {
+    background-color: var(--white);
+    border: 1px solid var(--border-gray);
+    border-radius: 6px;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(62, 39, 35, 0.05);
+}
+
+.info-block {
+    margin-bottom: 1.75rem;
+}
+
+.info-block:last-child {
+    margin-bottom: 0;
+}
+
+.info-block h3, .map-card h3 {
+    color: var(--accent-terracotta);
+    margin-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border-gray);
+    padding-bottom: 0.5rem;
+}
+
+.info-block a {
+    color: var(--text-chocolate);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.info-block a:hover {
+    color: var(--accent-terracotta);
+}
+
+.map-wrapper {
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 0.5rem;
+}
+
+/* 13. SITE FOOTER */
+.site-footer {
+    background-color: var(--text-chocolate);
+    color: var(--bg-cream);
+    padding: 3rem 5% 1.5rem 5%;
+}
+
+.footer-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+}
+
+.footer-col {
+    flex: 1;
+}
+
+.footer-logo {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    margin-bottom: 0.75rem;
+    background-color: var(--white);
+    padding: 5px;
+    border-radius: 50%;
+}
+
+.social-links a {
+    color: var(--accent-wheat);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.social-links a:hover {
+    color: var(--accent-terracotta);
+}
+
+.footer-center {
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.footer-center a {
+    color: var(--accent-wheat);
+    text-decoration: none;
+}
+
+.copyright {
+    margin-top: 1.5rem;
+    font-size: 0.8rem;
+    color: var(--border-gray);
+}
+
+.footer-right {
+    text-align: right;
+}
+
+.footer-right h4 {
+    color: var(--accent-wheat);
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+}
+
+.footer-nav a {
+    display: block;
+    color: var(--bg-cream);
+    text-decoration: none;
+    font-size: 0.875rem;
+    margin-bottom: 0.35rem;
+}
+
+.footer-nav a:hover {
+    color: var(--accent-terracotta);
+}
+
+/* 14. RESPONSIVE BREAKPOINTS */
+@media screen and (max-width: 900px) {
+    .card-grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .special-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .special-image-wrap {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .footer-right {
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #navigation table, 
+    #navigation tr, 
+    #navigation td {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+
+    #navigation img {
+        margin: 0 auto;
+    }
+
+    nav {
+        text-align: center;
+        margin-top: 15px;
+    }
+
+    nav a {
+        display: inline-block;
+        margin: 5px;
+    }
+
+    .card-grid-3 {
+        grid-template-columns: 1fr;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .estimator-card {
+        padding: 1.5rem;
+    }
+
+    .hero-section h2 {
+        font-size: 2.2rem;
+    }
+}
+
+/* 
+   MENU FILTERING STYLES & ANIMATIONS
+   */
+
+/* Active & Hover States for Filter Buttons */
+.filter-btn {
+    background-color: #f8f9fa;
+    border: 2px solid #d3a15c;
+    color: #333;
+    border-radius: 20px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background-color: #d3a15c;
+    color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Card Animation Base */
+.item-card {
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Hidden Card Animation State */
+.item-card.is-hidden {
+    opacity: 0;
+    transform: scale(0.92);
+    display: none !important;
+}
+
+/*HERO SLIDESHOW STYLES */
+.hero-slideshow-container {
+    position: relative;
+    height: 450px;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #ffffff;
+}
+
+/* Individual Slide Backgrounds */
+.hero-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1.2s ease-in-out;
+    z-index: 1;
+}
+
+/* Active slide becomes visible */
+.hero-slide.active {
+    opacity: 1;
+}
+
+/* Dark overlay so white text stands out clearly against photos */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.45);
+    z-index: 2;
+}
+
+/* Ensure text sits above background images and overlay */
+.hero-content {
+    position: relative;
+    z-index: 3;
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+.hero-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+.hero-content p {
+    font-size: 1.15rem;
+    margin-bottom: 25px;
+}
+
+/*CUSTOM CAKE PRICE ESTIMATOR STYLES */
+.price-estimator-section {
+    max-width: 650px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.estimator-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.estimator-form label {
+    font-weight: 600;
+    color: #333333;
+    font-size: 0.95rem;
+    margin-bottom: -5px;
+}
+
+.estimator-form select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1.5px solid #d3a15c;
+    border-radius: 6px;
+    background-color: #fdfdfd;
+    font-size: 1rem;
+    color: #444444;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.estimator-form select:focus {
+    border-color: #b8833e;
+    box-shadow: 0 0 6px rgba(211, 161, 92, 0.4);
+}
+
+.estimator-result {
+    margin-top: 25px;
+    padding: 20px;
+    background-color: #fdf8f2;
+    border: 2px dashed #d3a15c;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.estimator-result h3 {
+    margin: 0 0 8px 0;
+    color: #2c2c2c;
+    font-size: 1.3rem;
+}
+
+.estimator-result #estimatedPrice {
+    color: #d3a15c;
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+/*  Khwezi Bakes - Responsive Contact Page Styles */
+
+/* Main Container & Layout Setup */
+.contact-container,
+.contact-section {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 5%;
+    box-sizing: border-box;
+}
+
+/* Flex / Grid wrapper for Form + Info Columns */
+.contact-wrapper,
+.contact-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+    width: 100%;
+}
+
+.contact-info,
+.contact-form-container {
+    flex: 1 1 450px; /* Expands on desktop, shrinks on smaller screens */
+    min-width: 0;   /* Prevents overflow from long text/links */
+}
+
+/* Form Elements Responsiveness */
+.contact-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.form-group {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+    width: 100%;
+    max-width: 100%;
+    padding: 0.85rem 1rem;
+    box-sizing: border-box; /* Ensures padding doesn't cause overflow */
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+/* Embedded Google Map Responsiveness */
+.map-container,
+.map-container iframe {
+    width: 100% !important;
+    max-width: 100%;
+    height: 300px;
+    border: 0;
+    border-radius: 8px;
+}
+
+/* Mobile Breakpoint Adjustments (Phones < 768px) */
+@media screen and (max-width: 768px) {
+    .contact-container,
+    .contact-section {
+        padding: 1.5rem 1rem;
+    }
+
+    .contact-wrapper,
+    .contact-grid {
+        flex-direction: column; /* Stacks contact details and form vertically */
+        gap: 2rem;
+    }
+
+    .contact-info,
+    .contact-form-container {
+        flex: 1 1 100%;
+        width: 100%;
+    }
+
+    .section-title {
+        font-size: 1.6rem;
+    }
+
+    .btn-submit,
+    .contact-form button[type="submit"] {
+        width: 100%; /* Full-width button on mobile touchscreens */
+        padding: 0.9rem;
+    }
+}
+
+/* Container image overflow wrapper */
+.item-card {
+    overflow: hidden; /* Keeps the enlarged image inside the rounded card corners */
+}
+
+/* Base image transition */
+.item-card img.responsive-img {
+    transition: transform 0.4s ease-in-out, filter 0.4s ease-in-out;
+    will-change: transform;
+}
+
+/* Image Pop-Up / Zoom on Hover */
+.item-card:hover img.responsive-img {
+    transform: scale(1.08); /* Scales up the image inside the card */
+    filter: brightness(1.03); /* Slightly enhances brightness on hover */
+}
+
+/* ==========================================
+   Khwezi Bakes - Gallery & Estimator Styling
+   ========================================== */
+
+.section-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem;
+    box-sizing: border-box;
+}
+
+.section-title {
+    text-align: center;
+    font-family: serif;
+    letter-spacing: 2px;
+    color: #3b2f2f;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+/* 3-Column CSS Grid with Auto-fit Reflow */
+.card-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    width: 100%;
+}
+
+/* Individual Card Styling */
+.item-card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(59, 47, 47, 0.08);
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(211, 161, 92, 0.25);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover Zoom Effect on Images */
+.item-card img.responsive-img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    cursor: pointer;
+    transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.item-card:hover img.responsive-img {
+    transform: scale(1.06);
+    filter: brightness(1.02);
+}
+
+.item-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(59, 47, 47, 0.15);
+}
+
+/* Card Content Flexbox */
+.card-body {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: 0.5rem;
+}
+
+.card-body h3 {
+    font-size: 1.15rem;
+    color: #2c2c2c;
+    margin: 0;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.card-body p {
+    font-size: 0.9rem;
+    color: #555555;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.card-body .price-tag {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #b85d5d;
+    margin-top: auto;
+    padding-top: 0.75rem;
+    border-top: 1px solid #f2f2f2;
+}
+
+/* Fullscreen Pop-Up Lightbox Modal */
+.image-modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    max-width: 90%;
+    max-height: 85vh;
+    border-radius: 8px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+    animation: zoomIn 0.3s ease;
+}
+
+.close-modal {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #ffffff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.7); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* Responsive Breakpoint for Mobile Screens */
+@media screen and (max-width: 768px) {
+    .card-grid-3 {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==========================================
+   Khwezi Bakes - Navigation & Hamburger Menu
+   ========================================== */
+
+#navigation {
+    background-color: #ffffff;
+    border-bottom: 1px solid rgba(211, 161, 92, 0.3);
+    padding: 1rem 5%;
+    position: relative;
+    z-index: 1000;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.brand-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+}
+
+.nav-logo {
+    height: 45px;
+    width: auto;
+}
+
+.brand-link h1 {
+    font-family: serif;
+    font-size: 1.6rem;
+    color: #3b2f2f;
+    margin: 0;
+}
+
+/* Desktop Navigation Links */
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #3b2f2f;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #b85d5d;
+}
+
+/* Hamburger Button Hidden on Desktop */
+.hamburger-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1100;
+}
+
+.hamburger-toggle .bar {
+    height: 3px;
+    width: 100%;
+    background-color: #3b2f2f;
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Mobile Viewport Styles (< 768px) */
+@media screen and (max-width: 768px) {
+    .hamburger-toggle {
+        display: flex;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #ffffff;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease-in-out, box-shadow 0.3s ease;
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .nav-links a {
+        width: 100%;
+        text-align: center;
+        padding: 1rem 0;
+        border-top: 1px solid #f8f8f8;
+    }
+
+    /* Active Dropdown State */
+    .nav-links.active {
+        max-height: 350px;
+    }
+
+    /* Animated 'X' Icon Transformation */
+    .hamburger-toggle.active .bar:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+
+    .hamburger-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger-toggle.active .bar:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+}
+
+/* Mobile Viewport Styles (< 768px) */
+@media screen and (max-width: 768px) {
+    .hamburger-toggle {
+        display: flex;
+    }
+
+    /* Completely hide menu by default on mobile */
+    .nav-links {
+        display: none; 
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #ffffff;
+        flex-direction: column;
+        align-items: center;
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.08);
+        z-index: 1000;
+    }
+
+    /* Show menu when the JavaScript toggles the .active class */
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links a {
+        width: 100%;
+        text-align: center;
+        padding: 1rem 0;
+        border-top: 1px solid #f8f8f8;
+    }
+
+    /* Animated 'X' Icon Transformation */
+    .hamburger-toggle.active .bar:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+
+    .hamburger-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger-toggle.active .bar:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+}
+
+/* ==========================================
+   MOBILE RESPONSIVENESS OVERRIDES (< 768px)
+   ========================================== */
+
+@media screen and (max-width: 768px) {
+    /* 1. Force Hamburger Menu to Hide by Default */
+    .nav-links {
+        display: none !important;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #ffffff;
+        flex-direction: column;
+        align-items: center;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        padding: 0;
+        margin: 0;
+    }
+
+    /* Show links when active class is added by JavaScript */
+    .nav-links.active {
+        display: flex !important;
+    }
+
+    .nav-links a {
+        width: 100%;
+        text-align: center;
+        padding: 1rem 0;
+        border-top: 1px solid #f2f2f2;
+    }
+
+    /* Ensure hamburger toggle is visible */
+    .hamburger-toggle {
+        display: flex !important;
+    }
+
+    /* 2. Fix Contact Page & Map Overflow on Mobile */
+    .contact-container,
+    .contact-section,
+    .section-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+        box-sizing: border-box !important;
+        overflow-x: hidden;
+    }
+
+    /* Prevent long text or address strings from breaking layout */
+    .contact-info p, 
+    .contact-info td, 
+    .contact-info div {
+        word-break: break-word;
+        font-size: 0.95rem;
+    }
+
+    /* Make Google Maps iframe fully responsive and fit mobile screens */
+    iframe, 
+    .map-container iframe {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: 280px !important;
+        border: none;
+    }
+}
+
+/* ==========================================
+   FINAL MOBILE HEADER FIX
+   ========================================== */
+
+@media screen and (max-width: 768px) {
+    /* Ensure header container is relative for absolute menu positioning */
+    #navigation {
+        position: relative;
+    }
+
+    .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+
+    /* Hide the navigation links completely by default */
+    .nav-links {
+        display: none !important;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #ffffff;
+        flex-direction: column;
+        align-items: center;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Show the links only when JavaScript adds the .active class */
+    .nav-links.active {
+        display: flex !important;
+    }
+
+    .nav-links a {
+        width: 100%;
+        text-align: center;
+        padding: 1rem 0;
+        border-top: 1px solid #f2f2f2;
+    }
+
+    .hamburger-toggle {
+        display: flex !important;
+    }
+}
+
+/* ==========================================
+   Header & Mobile Navigation Layout
+   ========================================== */
+
+#navigation {
+    background-color: #ffffff;
+    border-bottom: 1px solid rgba(211, 161, 92, 0.3);
+    padding: 0.75rem 1.5rem;
+    position: relative;
+    z-index: 1000;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.brand-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+}
+
+.nav-logo {
+    height: 40px;
+    width: auto;
+}
+
+.brand-link h1 {
+    font-family: serif;
+    font-size: 1.5rem;
+    color: #3b2f2f;
+    margin: 0;
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #3b2f2f;
+    font-weight: 500;
+}
+
+.nav-links a.active {
+    color: #b85d5d;
+}
+
+.hamburger-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.hamburger-toggle .bar {
+    height: 3px;
+    width: 100%;
+    background-color: #3b2f2f;
+    border-radius: 2px;
+}
+
+/* Mobile Screens Screen Adjustments */
+@media screen and (max-width: 768px) {
+    .hamburger-toggle {
+        display: flex !important;
+    }
+
+    .nav-links {
+        display: none !important;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #ffffff;
+        flex-direction: column;
+        align-items: center;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        padding: 0;
+        margin: 0;
+    }
+
+    .nav-links.active {
+        display: flex !important;
+    }
+
+    .nav-links a {
+        width: 100%;
+        text-align: center;
+        padding: 0.85rem 0;
+        border-top: 1px solid #f2f2f2;
+    }
+}

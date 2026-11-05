@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khwezi Bakes | Artisanal Bakery & Custom Cakes</title>
+    <meta name="description"
+        content="Khwezi Bakes offers fresh artisanal breads, flaky pastries, and custom celebration cakes in Durban North. Visit our daily menu and order today!">
+
+
+
+
+
+    <!-- Open Graph Tags for Social Media Sharing -->
+    <meta property="og:title" content="Khwezi Bakes | Artisanal Bakery">
+    <meta property="og:description" content="Bringing warmth, light, and fresh baking to your family table.">
+    <meta property="og:image" content="_images/logo.svg">
+    <link rel="stylesheet" href="css_assets/styles.css">
+</head>
+
+<body>
+
+
+    <!-- 
+  Source Attribution:
+  Code adapted from AI Collaborator (Gemini) assistance.
+  Reason: Implemented for structuring the hero slideshow carousel and category filter buttons.
+  Date Accessed: October 2026.
+-->
+    <!-- HEADER & NAVIGATION (Using Table Structure) -->
+    <header>
+        <div id="navigation">
+            <div class="nav-container">
+                <!-- Logo + Title -->
+                <a href="index.html" class="brand-link">
+                    <img src="_images/logo.svg" alt="Khwezi Bakes Logo" class="nav-logo">
+                    <h1>Khwezi Bakes</h1>
+                </a>
+
+                <!-- Mobile Hamburger Toggle Button -->
+                <button class="hamburger-toggle" id="hamburgerToggle" aria-label="Toggle Navigation Menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+
+                <!-- Navigation Links -->
+                <nav class="nav-links" id="navLinks">
+                    <a href="index.html">Home</a>
+                    <a href="menu.html">Daily Menu</a>
+                    <a href="gallery.html">Gallery</a>
+                    <a href="story.html">Our Story</a>
+                    <a href="contact.html" class="active">Contact us</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- PAGE HERO / HEADER -->
+        <section class="page-title-section">
+            <h2>Our Daily Offerings</h2>
+            <p>Filtered options below allow browsing by baked category.</p>
+        </section>
+
+        <!-- MENU FILTER BUTTONS -->
+        <div class="filter-container" style="text-align: center; margin: 20px 0;">
+            <button class="filter-btn active" data-category="all"
+                style="padding: 8px 16px; margin: 0 5px; cursor: pointer;">All</button>
+            <button class="filter-btn" data-category="bread"
+                style="padding: 8px 16px; margin: 0 5px; cursor: pointer;">Bread</button>
+            <button class="filter-btn" data-category="pastries"
+                style="padding: 8px 16px; margin: 0 5px; cursor: pointer;">Pastries</button>
+            <button class="filter-btn" data-category="cakes"
+                style="padding: 8px 16px; margin: 0 5px; cursor: pointer;">Cakes</button>
+        </div>
+
+        <!-- SPECIAL OF THE DAY -->
+        <section class="section-container special-section">
+            <h2 class="section-title">SPECIAL OF THE DAY</h2>
+            <div class="special-card">
+                <div class="special-image-wrap">
+                    <img src="_images/special-eclair.jpeg" alt="Cardamom & Vanilla Custard Tart" class="responsive-img">
+                </div>
+                <div class="special-details">
+                    <h3>Cardamom & Vanilla Custard Tart</h3>
+                    <p>Crisp buttery pastry shell filled with rich organic vanilla bean custard and dusted with ground
+                        cardamom.</p>
+                    <p class="price-tag">R 45.00</p>
+                    <a href="contact.html" class="btn btn-primary">Order Now</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- DAILY MENU ITEMS GRID -->
+        <section class="section-container menu-items-section">
+            <h2 class="section-title">FRESH BAKES</h2>
+            <div class="card-grid-3">
+                <div class="item-card" data-category="bread">
+                    <div class="special-image-wrap">
+                        <img src="_images/fresh-bakes-1.jpg" alt="Cardamom & Heritage sourdough loaf"
+                            class="responsive-img">
+                    </div>
+                    <div class="card-body">
+                        <h3>Heritage Sourdough Loaf</h3>
+                        <p>Naturally leavened sourdough bread baked crisp on the stone deck.</p>
+                        <p class="price-tag">R 52.00</p>
+                    </div>
+                </div>
+
+                <div class="item-card" data-category="bread">
+                    <div class="special-image-wrap">
+                        <img src="_images/fresh-bakes-2.jpg" alt="Traditional Farmhouse White Bread"
+                            class="responsive-img">
+                    </div>
+                    <div class="card-body">
+                        <h3>Traditional Farmhouse White Bread</h3>
+                        <p>Soft, pillow-textured classic loaf perfect for toasted sandwiches.</p>
+                        <p class="price-tag">R 38.00</p>
+                    </div>
+                </div>
+
+                <div class="item-card" data-category="pastries">
+                    <div class="special-image-wrap">
+                        <img src="_images/fresh-bakes-3.jpg" alt="Butter croissant" class="responsive-img">
+                    </div>
+                    <div class="card-body">
+                        <h3>Butter Croissant</h3>
+                        <p>Flaky 72-layer golden pastry baked fresh daily at sunrise.</p>
+                        <p class="price-tag">R 32.00</p>
+                    </div>
+                </div>
+
+                <div class="item-card" data-category="pastries">
+                    <div class="special-image-wrap">
+                        <img src="_images/fresh-bakes-4.jpg" alt="Cinnamon Morning Roll" class="responsive-img">
+                    </div>
+                    <div class="card-body">
+                        <h3>Cinnamon Morning Roll</h3>
+                        <p>Soft sweet dough rolled with brown sugar, cassia cinnamon, and cream glaze.</p>
+                        <p class="price-tag">R 35.00</p>
+                    </div>
+                </div>
+
+                <div class="item-card" data-category="cakes">
+                    <div class="special-image-wrap">
+                        <img src="_images/fresh-bakes-5.jpg" alt="Chocolate fudge slice" class="responsive-img">
+                    </div>
+                    <div class="card-body">
+                        <h3>Classic Chocolate Fudge Slice</h3>
+                        <p>Moist cocoa sponge layered with organic dark chocolate ganache.</p>
+                        <p class="price-tag">R 48.00</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CUSTOM CELEBRATION CAKE CALLOUT -->
+        <section class="section-container custom-cake-banner">
+            <div class="banner-content">
+                <h2>Looking for a Custom Celebration Cake?</h2>
+                <p>We craft bespoke multi-layer cakes tailored for birthdays, weddings, and milestones.</p>
+                <div class="banner-actions">
+                    <a href="gallery.html" class="btn btn-secondary">Browse Custom Cake Gallery</a>
+                    <a href="contact.html" class="btn btn-primary">Place Custom Order Inquiry</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- IMAGE LIGHTBOX MODAL -->
+    <div id="imageModal" class="image-modal">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="modalImg" alt="Enlarged Cake Preview">
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-col footer-left">
+                <img src="_images/logo.svg" alt="Khwezi Bakes Logo" class="footer-logo">
+                <div class="social-links">
+                    <a href="https://www.instagram.com/khwezibakes_sa/" target="_blank"
+                        rel="noopener noreferrer">Instagram</a> |
+                    <a href="https://www.facebook.com/share/19zCnnTtfj/" target="_blank"
+                        rel="noopener noreferrer">Facebook</a> |
+                    <a href="https://www.tiktok.com/@khwezi.bakes.pati" target="_blank"
+                        rel="noopener noreferrer">TikTok</a>
+                </div>
+            </div>
+
+            <div class="footer-col footer-center">
+                <p class="footer-address">12 Radar Drive, Durban North, Durban</p>
+                <p class="footer-contact">Ph: +27 (0) 31 098 7654 | <a
+                        href="mailto:hello@khwezibakes.co.za">hello@khwezibakes.co.za</a></p>
+                <p class="copyright">&copy; 2026 Khwezi Bakes Patisserie. All Rights Reserved.</p>
+            </div>
+
+            <div class="footer-col footer-right">
+                <h4>QUICK LINKS</h4>
+                <div class="footer-nav">
+                    <a href="index.html">Home</a>
+                    <a href="menu.html">Daily Menu</a>
+                    <a href="gallery.html">Gallery</a>
+                    <a href="story.html">Our Story</a>
+                    <a href="contact.html">Contact us</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>

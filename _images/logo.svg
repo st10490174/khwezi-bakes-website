@@ -1,0 +1,20 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M100 195C152.467 195 195 152.467 195 100C195 47.5329 152.467 5 100 5C47.5329 5 5 47.5329 5 100C5 152.467 47.5329 195 100 195Z" fill="#FAF0E6"/>
+<path d="M100 185C146.944 185 185 146.944 185 100C185 53.0558 146.944 15 100 15C53.0558 15 15 53.0558 15 100C15 146.944 53.0558 185 100 185Z" stroke="#3E2723" stroke-width="4"/>
+<path d="M100 178C143.078 178 178 143.078 178 100C178 56.9218 143.078 22 100 22C56.9218 22 22 56.9218 22 100C22 143.078 56.9218 178 100 178Z" stroke="#DAA520" stroke-width="1.5" stroke-dasharray="4 4"/>
+<path d="M100 45V35" stroke="#DAA520" stroke-width="3" stroke-linecap="round"/>
+<path d="M135 60L143 52" stroke="#DAA520" stroke-width="3" stroke-linecap="round"/>
+<path d="M155 95H165" stroke="#DAA520" stroke-width="3" stroke-linecap="round"/>
+<path d="M65 60L57 52" stroke="#DAA520" stroke-width="3" stroke-linecap="round"/>
+<path d="M45 95H35" stroke="#DAA520" stroke-width="3" stroke-linecap="round"/>
+<path d="M50 125C54.3874 115.426 61.4314 107.313 70.2949 101.625C79.1583 95.9366 89.4684 92.9129 100 92.9129C110.532 92.9129 120.842 95.9366 129.705 101.625C138.569 107.313 145.613 115.426 150 125" stroke="#DAA520" stroke-width="3"/>
+<path d="M100 155C100 125 100 95 100 65" stroke="#3E2723" stroke-width="4" stroke-linecap="round"/>
+<path d="M100 130C85 125 80 110 100 105V130Z" fill="#DAA520" stroke="#3E2723" stroke-width="2.5" stroke-linejoin="round"/>
+<path d="M100 130C115 125 120 110 100 105V130Z" fill="#DAA520" stroke="#3E2723" stroke-width="2.5" stroke-linejoin="round"/>
+<path d="M100 110C85 105 80 90 100 85V110Z" fill="#DAA520" stroke="#3E2723" stroke-width="2.5" stroke-linejoin="round"/>
+<path d="M100 110C115 105 120 90 100 85V110Z" fill="#DAA520" stroke="#3E2723" stroke-width="2.5" stroke-linejoin="round"/>
+<path d="M100 90C88 85 85 72 100 68V90Z" fill="#DAA520" stroke="#3E2723" stroke-width="2.5" stroke-linejoin="round"/>
+<path d="M100 90C112 85 115 72 100 68V90Z" fill="#DAA520" stroke="#3E2723" stroke-width="2.5" stroke-linejoin="round"/>
+<path d="M100 70C93 60 100 50 100 50C100 50 107 60 100 70Z" fill="#DAA520" stroke="#3E2723" stroke-width="2.5" stroke-linejoin="round"/>
+<path d="M65 145C88.3333 151.667 111.667 151.667 135 145" stroke="#3E2723" stroke-width="3" stroke-linecap="round"/>
+</svg>
